@@ -1,0 +1,2 @@
+Conocimientos de C++:
+En el curso de física computacional I vimos programación orientada a objetos de forma rápida. Aunque son temas que ya conozco, me es necesario repasarlos para tenerlos más frescos. 
