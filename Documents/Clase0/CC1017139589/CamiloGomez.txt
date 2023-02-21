@@ -1,0 +1,7 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+¿Qué sabes de C++?
+
+Hace unos 15 años tuve la oportunidad de ver un curso en C++, donde se vió la definición de variables, condicionales, rutinas, funciones.
+Por lo que podría tener nociones, pero sería importante recordarlo debido a que fue hace mucho tiempo y desde entonces no he tenido la oportunidad de volver
