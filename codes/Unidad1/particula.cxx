@@ -8,7 +8,7 @@ private:
     double *position;
     int dim;
 protected:
-    void copy(double *posI, double *posO, int dim){
+    void copy(double *posI, double *posO, int dim){ //se podría usar  std::memcpy
         for(int i=0; i<dim; i++){
             posO[i] = posI[i];
         }
@@ -24,11 +24,6 @@ public:
        dim = p.dim;
        position=new double[dim];
        copy(p.position, position,dim);
-    }
-
-    Particle(int dim){
-       this->dim = dim;
-       position=new double[dim];
     }
 
     ~Particle(){
@@ -78,6 +73,21 @@ public:
         return sqrt(sum);
     }
 
+    double distance(Particle *p) //polimorfismo, métodos que se llaman igual pero reciben argumentos diferentes
+    {
+        if(dim != p->getDim())
+        {
+            cout<<"ERROR:no se puede calcular la distancia entre dos partículas de diferente dimensión"<<endl;
+            exit(1); //salida de error
+        }
+        double sum = 0;
+        for(int i=0;i<dim;i++)
+        {
+            sum+=(position[i]+p->getPosition(i))*(position[i]+p->getPosition(i));
+        }
+        return sqrt(sum);        
+    }
+
 };
 
 int main()
@@ -88,6 +98,27 @@ int main()
     Particle p2(2,pos2);
     p1.print();
     p2.print();
-    cout<<"la distancia entre p1 y p2 es "<<p1.distance(p2);
+    cout<<"la distancia entre p1 y p2 es "<<p1.distance(p2)<<endl;
+    //OJO A ESTO
+    //p1=p2; // aún no sobrecargamos operadores, comportamiento indefinido o error de compilación
+    //p1.print();
+    //p2.print();
+
+    auto pp1=new Particle(2,pos1);
+    auto pp2=new Particle(2,pos2);
+    pp1->print(); //notesé que cuando es puntero los métodos se llaman con el operador ->
+    pp2->print();
+    cout<<"la distancia entre pp1 y pp2 es "<<pp1->distance(*pp2)<<endl; //podemos pasar el valor del puntero por que tenemos copy contructor, si lo comentamos no funciona
+    cout<<"la distancia entre pp1 y pp2 es "<<pp1->distance(pp2)<<endl; //este lo podemos usar, pasando el puntero directamente por que tenemos sobrecargado el método dintance (polimosfismo)
+
+    //Este caso ya lo estudiamos
+    pp1=pp2; // ¿qué pasa acá?
+    pp2->print();
+
+    Particle p3(p2); //copy constructor
+    p3.print()
+    p2.print()
+    delete pp1;
+    delete pp2;
     return 0;
 }

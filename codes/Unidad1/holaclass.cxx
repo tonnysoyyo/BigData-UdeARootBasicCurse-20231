@@ -31,7 +31,7 @@ int main()
 {
     Saludo s("hola clases");
     s.saludar();
-    //cout<<s.mensaje<<endl;
+    //cout<<s.mensaje<<endl; //mensaje es privado, no puedo acceder desde acá al atributo, solo a lo público
     return 0;
 
 }
