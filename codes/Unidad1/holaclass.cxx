@@ -14,7 +14,7 @@ class Saludo
     Saludo(string mensaje)
     {
         this->mensaje = mensaje;
-        cout<<"Contructor llamado"<<endl;
+        cout<<"Constructor llamado"<<endl;
     }
 
     ~Saludo(){
@@ -29,9 +29,9 @@ class Saludo
 
 int main()
 {
-    Saludo s("hola clases");
+    Saludo s("hola clase");
     s.saludar();
-    //cout<<s.mensaje<<endl; //mensaje es privado, no puedo acceder desde acá al atributo, solo a lo público
+    //cout<<s.mensaje<<endl; //mensaje es privado, no puedo acceder desde aquí al atributo, sólo a lo público
     return 0;
 
 }

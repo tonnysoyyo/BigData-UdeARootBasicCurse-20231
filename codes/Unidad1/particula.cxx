@@ -73,7 +73,7 @@ public:
         return sqrt(sum);
     }
 
-    double distance(Particle *p) //polimorfismo, métodos que se llaman igual pero reciben argumentos diferentes
+    double distance(Particle *p) //polimorfismo, métodos que se llaman igual, pero reciben argumentos diferentes
     {
         if(dim != p->getDim())
         {
@@ -106,19 +106,19 @@ int main()
 
     auto pp1=new Particle(2,pos1);
     auto pp2=new Particle(2,pos2);
-    pp1->print(); //notesé que cuando es puntero los métodos se llaman con el operador ->
+    pp1->print(); //nótese que cuando es puntero los métodos se llaman con el operador ->
     pp2->print();
     cout<<"la distancia entre pp1 y pp2 es "<<pp1->distance(*pp2)<<endl; //podemos pasar el valor del puntero por que tenemos copy contructor, si lo comentamos no funciona
-    cout<<"la distancia entre pp1 y pp2 es "<<pp1->distance(pp2)<<endl; //este lo podemos usar, pasando el puntero directamente por que tenemos sobrecargado el método dintance (polimosfismo)
+    cout<<"la distancia entre pp1 y pp2 es "<<pp1->distance(pp2)<<endl; //este lo podemos usar, pasando el puntero directamente por que tenemos sobrecargado el método distance (polimosfismo)
 
     //Este caso ya lo estudiamos
-    pp1=pp2; // ¿qué pasa acá?
+    pp1=pp2; // ¿qué pasa aquí?
     pp2->print();
 
     Particle p3(p2); //copy constructor
-    p3.print()
-    p2.print()
+    p3.print();
+    p2.print();
     delete pp1;
-    delete pp2;
+    //delete pp2; //arriba asigne pp2 a pp1, no se puede hacer una libraciṕn doble 
     return 0;
 }
