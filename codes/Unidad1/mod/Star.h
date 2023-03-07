@@ -11,7 +11,7 @@ class Star:public Particle
         double temp;
 
     public:
-        Star(double pisition[3], double mass,  double temp, string name):Particle(3,pisition)
+        Star(double pos[3], double mass,  double temp, string name):Particle(3,pos)
         {
             this->mass = mass;
             this->name = name; 
