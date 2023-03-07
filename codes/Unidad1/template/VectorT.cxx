@@ -71,6 +71,10 @@ public:
         }
         return w;
     }
+    T& operator[](int index)
+    {
+        return data[index];
+    }
 
 };
 
@@ -107,5 +111,10 @@ int main()
     cout<<v3.get(0)<<"  "<<v3.get(1)<<endl;
     v3=v2;
     cout<<v3.get(0)<<"  "<<v3.get(1)<<endl;
+
+    //esto es posible después de sobrecargar []
+    cout<<v3[0]<<"  "<<v3[1]<<endl;
+    v3[0]=-1; // lvalue required as left operand of assignment (poner & en la variable de retorno)
+    cout<<v3[0]<<"  "<<v3[1]<<endl;
     return 0;
 }
