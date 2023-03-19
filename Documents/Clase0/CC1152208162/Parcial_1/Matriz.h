@@ -18,7 +18,7 @@ public:
 	T get(int fila, int columna) const;
 	void print();
 	Matriz<T> transpuesta() const;
-
+	
 	Matriz<T> operator+(const Matriz<T>& otra) const;
 	Matriz<T> operator-(const Matriz<T>& otra) const;
 	Matriz<T>& operator=(const Matriz<T>& otra);
@@ -58,7 +58,7 @@ T Matriz<T>::get(int fila, int columna) const {
 	if (fila < 0 || fila >= filas || columna < 0 || columna >= columnas) { // Verifica que los índices estén dentro del rango válido para evitar violación de segmento
 		throw out_of_range("Índices de matriz fuera de rango");
 		}
-		
+	
 	return datos[fila * columnas + columna];
 	}
 
@@ -78,15 +78,15 @@ void Matriz<T>::print() {
 // Método para calcular la transpuesta:
 template<typename T>
 Matriz<T> Matriz<T>::transpuesta() const {
-    Matriz<T> transpuesta(columnas, filas); // Crear una nueva matriz con las dimensiones invertidas
-    
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-            transpuesta.set(j, i, get(i, j));
+	Matriz<T> transpuesta(columnas, filas); // Crear una nueva matriz con las dimensiones invertidas
+	
+	for (int i = 0; i < filas; i++) {
+		for (int j = 0; j < columnas; j++) {
+			transpuesta.set(j, i, get(i, j));
 			}
 		}
-		
-    return transpuesta;
+	
+	return transpuesta;
 	}
 
 // Sobrecarga de operadores:
@@ -95,17 +95,17 @@ template<typename T>
 Matriz<T> Matriz<T>::operator+(const Matriz<T>& otra) const {
 	if (filas != otra.filas || columnas != otra.columnas) {
 		throw invalid_argument("Las matrices deben tener las mismas dimensiones"); // Verifica que ambas matrices tengan las mismas dimensiones
-        }
-        
-    Matriz<T> resultado(filas, columnas);
-    
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-            resultado.set(i, j, get(i, j) + otra.get(i, j));
+		}
+	
+	Matriz<T> resultado(filas, columnas);
+	
+	for (int i = 0; i < filas; i++) {
+		for (int j = 0; j < columnas; j++) {
+			resultado.set(i, j, get(i, j) + otra.get(i, j));
 			}
 		}
-		
-    return resultado;
+	
+	return resultado;
 	}
 
 template<typename T>
@@ -127,50 +127,50 @@ Matriz<T> Matriz<T>::operator-(const Matriz<T>& otra) const {
 
 template<typename T>
 Matriz<T>& Matriz<T>::operator=(const Matriz<T>& otra) {
-    if (this != &otra) { // Verifica que no se esté copiando la misma matriz
+	if (this != &otra) { // Verifica que no se esté copiando la misma matriz
 		delete[] datos; // Libera la memoria del arreglo dinámico actual
 		
 		// Reserva nueva memoria:
-        filas = otra.filas;
-        columnas = otra.columnas;
-        datos = new T[otra.filas * otra.columnas];
-        
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                set(i, j, otra.get(i, j));
+		filas = otra.filas;
+		columnas = otra.columnas;
+		datos = new T[otra.filas * otra.columnas];
+		
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
+				set(i, j, otra.get(i, j));
 				}
 			}
 		}
-		
-    return *this;
+	
+	return *this;
 	}
 
 template<typename T>
 Matriz<T>& Matriz<T>::operator+=(const Matriz<T>& otra) {
 	if (filas != otra.filas || columnas != otra.columnas) {
 		throw invalid_argument("Las matrices deben tener las mismas dimensiones"); // Verifica que ambas matrices tengan las mismas dimensiones
-        }
-        
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-            set(i, j, get(i, j) + otra.get(i, j));
-        }
-    }
-    
-    return *this;
-}
+		}
+	
+	for (int i = 0; i < filas; i++) {
+		for (int j = 0; j < columnas; j++) {
+			set(i, j, get(i, j) + otra.get(i, j));
+			}
+		}
+	
+	return *this;
+	}
 
 template<typename T>
 Matriz<T>& Matriz<T>::operator-=(const Matriz<T>& otra) {
 	if (filas != otra.filas || columnas != otra.columnas) {
 		throw invalid_argument("Las matrices deben tener las mismas dimensiones"); // Verifica que ambas matrices tengan las mismas dimensiones
-        }
-        
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-            set(i, j, get(i, j) - otra.get(i, j));
+		}
+	
+	for (int i = 0; i < filas; i++) {
+		for (int j = 0; j < columnas; j++) {
+			set(i, j, get(i, j) - otra.get(i, j));
 			}
 		}
-		
-    return *this;
+	
+	return *this;
 	}
