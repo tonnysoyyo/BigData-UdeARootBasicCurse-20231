@@ -41,6 +41,9 @@ template<class T> class Matrix{
         }
 
         Matrix<T> operator+(const Matrix<T>& M) const {
+            if (this->m != M.m || this->n!=n){
+                throw runtime_error("[operator +]La matriz de "+to_string(this->m)+"x"+to_string(this->n)+" no es compatible con dimensión "+to_string(M.m)+"x"+to_string(M.n));
+            }
             Matrix<T> w(this->m, this->n);
             for (int k = 0; k < m*n; k++) {
                     w.elemPtr[k] = this->elemPtr[k] + M.elemPtr[k];
@@ -49,6 +52,9 @@ template<class T> class Matrix{
         }
 
         Matrix<T> operator-(const Matrix<T>& M) const {
+            if (this->m != M.m || this->n!=n){
+                throw runtime_error("[operator -]La matriz de "+to_string(this->m)+"x"+to_string(this->n)+" no es compatible con dimensión "+to_string(M.m)+"x"+to_string(M.n));
+            }
             Matrix<T> w(this->m, this->n);
             for (int k = 0; k < m*n; k++) {
                     w.elemPtr[k] = this->elemPtr[k] - M.elemPtr[k];
