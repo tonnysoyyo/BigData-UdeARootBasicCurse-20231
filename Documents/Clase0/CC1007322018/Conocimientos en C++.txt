@@ -1,0 +1,7 @@
+﻿Conocimientos en C++
+
+
+- Fundamentos en C++
+- Las bases  de programación orientada a objetos en C++
+-Montecarlo y RungeKutta
+-Definición de punteros

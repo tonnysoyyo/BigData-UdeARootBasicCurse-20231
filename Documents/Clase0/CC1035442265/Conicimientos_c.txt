@@ -1,0 +1,1 @@
+Es lenguanje de bajo nivel, que esta compilado, tiene una velocidad de procesamiento mucho mayor a Python por lo cual se utiliza para analizar grandes cantidades de datos.

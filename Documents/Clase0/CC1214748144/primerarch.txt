@@ -1,0 +1,1 @@
+Lo que sé de C++ son funciones, programación orientada a objetos y punteros. Ya vi el curso de física computaciona II. 
