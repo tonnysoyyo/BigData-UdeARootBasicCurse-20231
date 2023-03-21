@@ -6,10 +6,10 @@ using namespace std;
 template<class T> class Vector {
 private:
     T* data;
-    int size;
+        int size;
 
 public:
-    Vector(int n) : size(n) {
+    Vector(int n) : size_n(n),size_m(m) {
         data = new T[n];
         for (int i = 0; i < size; i++) {
             data[i] = 0.0;
