@@ -9,11 +9,13 @@ void print(int *p,int n){
     } 
     cout<<"]"<<endl;
 }
+/*
 void llenar_matriz(int **m,int n,int m, int valor){
     for(int i=0;i<n;i++){
         for(int j=0;)
     }
 }
+*/
 int main(){
     int *p;   
     //caso 1 segfault, la posicioón 100 del vertor p no existe
@@ -29,6 +31,10 @@ int main(){
     cout<<p<<endl<<t<<endl;
     delete p;
     //delete t; // ¿qué va a pasar?
+    /*
+    Pasaría ese error de doble eliminación (double free), pues ya elimine la dirección de 
+    memoria al eliminar p.
+    */
 
     //para este ejemplo vamos a asignar mas memoria de la disponible
     //unsigned long int max = std::numeric_limits<unsigned long int>::max();
