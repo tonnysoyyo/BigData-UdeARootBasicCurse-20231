@@ -4,7 +4,7 @@ using namespace std;
 int suma(int a,int b){
     return a+b;
 }
-void suma_vec(int *sum,int *a, int *b, int n){
+void suma_vec(int *sum,int *a, int *b, int n){  // n no tiene el *, a diferencia de a y b porque n es la que dicide el tamaño y debe ser un valor fijo
     for(int i=0;i<n;i++){
         sum[i]=a[i]+b[i];
     }
@@ -16,10 +16,12 @@ void resta_vec(int *sum,int *a, int *b, int n){
 }
 void operar(void (*op)(int*,int*,int*,int),int *sum,int *a, int *b, int n){
     op(sum,a,b,3);
-}
-
+} 
+/* operar me coge como primer parámetro: void (*op)(int*,int*,int*,int), que es una función 
+que definen como op.
+*/
 int main(){
-    int (*suma_prt)(int,int);
+    int (*suma_prt)(int,int); // es int al principio porque la función suma me retornará un entero
     suma_prt = &suma;
     cout<<suma_prt(2,2)<<endl;
 
