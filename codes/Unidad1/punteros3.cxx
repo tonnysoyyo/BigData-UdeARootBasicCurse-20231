@@ -22,7 +22,7 @@ int main()
     int* r = q - 1; // r apunta al segundo elemento de arr (q - 1)
     cout<<q[0]<<endl;
     cout<<r[0]<<endl;
-    cout<<(*p + 4)<<endl;
+    cout<<*(p + 4)<<endl;
     q = p;
     int *s=new int[5];
     suma(s,p,q,5);
