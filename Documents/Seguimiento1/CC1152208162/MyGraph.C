@@ -28,6 +28,8 @@ void MyGraph(){
 	multi -> Add(exp, "APE");
 	multi -> Draw("APE");
 	
+	multi -> GetXaxis()->SetNdivisions(5, 5, 0);
+
 	// Leyendas:
 	auto legend = new TLegend(.1,.7,.3,.9,"Lab. Lesson 2");
 	legend -> AddEntry(teo,"Expected Points","LF");
