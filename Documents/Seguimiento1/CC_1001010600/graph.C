@@ -1,4 +1,5 @@
 void graph(){
+
   TCanvas* canvas = new TCanvas("canvas", "canvas", 800, 600);
   canvas->SetTitle("Firts task");
 
