@@ -43,7 +43,6 @@ void ExperimentalGraph(){
     auto fit = new TF1("linearFit", linearFunct, 0, 0, 10);
     fit->SetLineColor(kBlue);
     fit->SetLineStyle(kDashed);
-    //f1->Draw("same");
 
     // call TH1::Fit with the name of the TF1 object
     measured->Fit("linearFit");
@@ -51,6 +50,8 @@ void ExperimentalGraph(){
     // Get parameters of the fitting
     Double_t p1 = fit->GetParameter(0);
     Double_t p2 = fit->GetParameter(1);
+    Double_t e1 = fit->GetParError(0);
+    Double_t e2 = fit->GetParError(1);
    
 
     
@@ -65,7 +66,7 @@ void ExperimentalGraph(){
 
     // Fit: params in the legend 
     char paramStr[60];
-    sprintf( paramStr, "%g + %g X", p1, p2);
+    sprintf( paramStr, "(%.2f \\pm  %.2f) + (%.2f \\pm  %.2f) X", p1, e1, p2, e2);
     legend->AddEntry(fit, paramStr, "L");
     
 
@@ -81,12 +82,11 @@ void ExperimentalGraph(){
     // Draw: option "3" shows the errors as a band, P point, E errors
     mg->Add( expected, "A3" );
     mg->Add( measured , "APE" );
-    //mg->Add( fit , "AL" );
     
     mg->Draw("APE3"); 
     legend->Draw();
 
-    
+    // save
     c1->Print("linearFit.png");  
 
 
