@@ -5,7 +5,7 @@ Double_t linearFunct(Double_t *x, Double_t *par) {
 
 void ExperimentalGraph(){
 
-    auto c1 = new TCanvas("c1", "DMeasurement XYZ and Expectation", 800,500);
+    auto c1 = new TCanvas("c1", "DMeasurement XYZ and Expectation", 800, 500);
     c1->SetGrid();
     c1->GetFrame()->SetBorderSize(12);
 
@@ -29,7 +29,6 @@ void ExperimentalGraph(){
 
     // %*s: skip the "," in the second column
     auto measured = new TGraphErrors("../../Unidad2/Clase3/macro2_input_suyo.txt", "%lg  %*s %lg %lg");
-    //measured->Draw("APE");
     measured->SetMarkerStyle(kOpenCircle);
     measured->SetMarkerColor(kBlue);
 
