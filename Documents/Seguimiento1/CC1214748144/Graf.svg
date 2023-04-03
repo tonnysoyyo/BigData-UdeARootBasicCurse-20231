@@ -5,7 +5,7 @@ Graf.svg
 </title>
 <desc>
 Creator: ROOT Version 6.28/00
-CreationDate: Sun Apr  2 19:49:38 2023</desc>
+CreationDate: Sun Apr  2 21:55:51 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="385.804" fill="white"/>
@@ -197,10 +197,10 @@ CreationDate: Sun Apr  2 19:49:38 2023</desc>
 <text xml:space="preserve" x="84.9708" y="104.776" fill="black" font-size="5.85214" font-family="Helvetica">Valores teoricos</text>
 <path d="M61.4449,111.883h 19.8425v -18.0042h -19.8425z" fill="#ffff00"/>
 <path d="M61.4449,102.881h 19.8425" fill="none" stroke="black"/>
-<text xml:space="preserve" x="397.675" y="318.39" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> b= 0.53072</text>
-<text xml:space="preserve" x="386.304" y="318.39" fill="black" font-size="18.1974" font-family="Times">&#0916;</text>
-<text xml:space="preserve" x="261.222" y="318.39" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> b=5.18756 ;   </text>
-<text xml:space="preserve" x="413.107" y="289.962" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> m=3.33409</text>
-<text xml:space="preserve" x="401.736" y="289.962" fill="black" font-size="18.1974" font-family="Times">&#0916;</text>
-<text xml:space="preserve" x="261.222" y="289.962" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> m=-1.01604  ;   </text>
+<text xml:space="preserve" x="402.549" y="289.962" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> m= 0.53072</text>
+<text xml:space="preserve" x="391.178" y="289.962" fill="black" font-size="18.1974" font-family="Times">&#0916;</text>
+<text xml:space="preserve" x="261.222" y="289.962" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> m=5.18756 ;   </text>
+<text xml:space="preserve" x="408.234" y="318.39" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> b=3.33409</text>
+<text xml:space="preserve" x="396.863" y="318.39" fill="black" font-size="18.1974" font-family="Times">&#0916;</text>
+<text xml:space="preserve" x="261.222" y="318.39" fill="black" font-size="18.1974" font-family="Helvetica" font-weight="bold"> b=-1.01604  ;   </text>
 <text xml:space="preserve" x="136.953" y="17.8688" fill="black" font-size="18.7414" font-family="Helvetica">Measurement XYZ and Expectation</text></svg>

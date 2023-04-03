@@ -38,7 +38,7 @@ void Graf(){
     //////////////////////////////////////////////////////////////
     auto *f = new TF1("Linear law","[0]+x*[1]",0,11);
     f->SetParameters(-3,5);
-    f->SetParNames("m","b");
+    f->SetParNames("b","m");
     f->SetLineColor(kRed);
     f->SetLineStyle(2);
     graph->Fit(f);
@@ -49,9 +49,9 @@ void Graf(){
     legend->AddEntry(graph1, "Valores teoricos", "LF" );
     legend->Draw();
     /////////////////////////////////////////////////
-    auto *text1 = new TLatex(5,6," b=5.18756 ;   #Delta b= 0.53072");
+    auto *text1 = new TLatex(5,12," m=5.18756 ;   #Delta m= 0.53072");
     text1->Draw();
-    auto *text = new TLatex(5,12," m=-1.01604  ;   #Delta m=3.33409");
+    auto *text = new TLatex(5,6," b=-1.01604  ;   #Delta b=3.33409");
     text->Draw();
     //////////////////////////////////////////////////////////////
     myc1->SetGrid();
