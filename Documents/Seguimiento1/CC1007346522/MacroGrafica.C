@@ -18,16 +18,17 @@ void MacroGrafica(){
     // Graficando los puntos esperados
     auto GrafExp = new TGraphErrors("macro2_input_expected.txt","%lg %lg %lg");
     GrafExp->SetFillColor(38);
+    GrafExp->SetTitle("Measurement XYZ");
+    GrafExp->GetXaxis()->SetTitle("length [cm]");
+    GrafExp->GetYaxis()->SetTitle("Arb.Units");
+    GrafExp->GetYaxis()->SetRangeUser(0,70);
+
     GrafExp->Draw("A3");
 
     // Graficando los puntos experimentales
     auto Graf1 = new TGraphErrors("macro2_input_suyo.txt","%lg %*s %lg %lg");
     Graf1->Draw("SPE");  
     Graf1->SetMarkerStyle(24);
-    Graf1->SetTitle("Measurement XYZ");
-    Graf1->GetXaxis()->SetTitle("length [cm]");
-    Graf1->GetYaxis()->SetTitle("Arb.Units");
-    Graf1->GetYaxis()->SetLimits(0,70);
 
     // Ajuste Lineal
     auto LinearFun = new TF1("Linear law","[0]+x*[1]",-1,11);
@@ -51,7 +52,8 @@ void MacroGrafica(){
     legend->AddEntry(LinearFun,"Linear Fit (m*x+b)","L");
     legend->AddEntry(LinearFun,("m = "+std::to_string(Parameters[1])).c_str(),"L");
     legend->AddEntry(LinearFun,("b = "+std::to_string(Parameters[0])).c_str(),"L");
-
     legend->Draw();
 
+    // Guardando Gráfica
+    Canvas1->Print("Plot.png");
 }
