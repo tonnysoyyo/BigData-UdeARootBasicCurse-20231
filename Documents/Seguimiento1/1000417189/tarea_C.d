@@ -1,0 +1,4 @@
+
+# DO NOT DELETE
+./tarea_C.so: /snap/root-framework/919/usr/local/include/RVersion.h /snap/root-framework/919/usr/local/include/ROOT/RConfig.hxx /snap/root-framework/919/usr/local/include/TClass.h /snap/root-framework/919/usr/local/include/TDictAttributeMap.h /snap/root-framework/919/usr/local/include/TInterpreter.h /snap/root-framework/919/usr/local/include/TROOT.h /snap/root-framework/919/usr/local/include/TBuffer.h /snap/root-framework/919/usr/local/include/TMemberInspector.h /snap/root-framework/919/usr/local/include/TError.h /snap/root-framework/919/usr/local/include/RtypesImp.h /snap/root-framework/919/usr/local/include/TIsAProxy.h /snap/root-framework/919/usr/local/include/TFileMergeInfo.h /snap/root-framework/919/usr/local/include/TCollectionProxyInfo.h /snap/root-framework/919/usr/local/bin/rootcling
+tarea_C__ROOTBUILDVERSION= 6.28/00
