@@ -52,7 +52,7 @@ void plot_data() {
     //gr->GetXaxis()->SetTitleFont(52);
     gr->GetXaxis()->SetTitle("p_{T} [GeV/c]");
     //gr->GetYaxis()->SetTitleFont(52);
-    gr->GetYaxis()->SetTitle("\R_{s}");
+    gr->GetYaxis()->SetTitle("R_{s}");
     gr->GetYaxis()->SetRangeUser(0.07, 0.139);
     //gr->GetXaxis()->SetRangeUser(0.0, 75.0);
     gr->SetMarkerStyle(kOpenCircle); //20 valor
@@ -103,7 +103,7 @@ leg->SetFillColor(0);
 leg->SetFillStyle(0);
 leg->SetBorderSize(0);
 leg->SetTextFont(62);
-leg->AddEntry(gr,"CMS data ;\|y|< 2.4 ","PE");
+leg->AddEntry(gr,"CMS data ;|y|< 2.4 ","PE");
 //Puede ser útil 
 //leg->AddEntry(fitFunc, Form(" a = %.2f, b = %.2f, c = %.2f", fitFunc->GetParameter(0), fitFunc->GetParameter(1), fitFunc->GetParameter(2) ),"L" );
 //char fitParams[100];
@@ -119,7 +119,7 @@ leg2->SetBorderSize(0);
 leg2->SetTextFont(62);
 leg2->AddEntry((TObject*)0,"CMS","");
 
-leg2->AddEntry("","\L= 61.6 fb^{-1}","");
+leg2->AddEntry("","L= 61.6 fb^{-1}","");
 leg2->AddEntry("","#sqrt{s}= 13 TeV","");
 leg->AddEntry(fitFunc,"Fit to CMS data","l");
 leg2->Draw();
