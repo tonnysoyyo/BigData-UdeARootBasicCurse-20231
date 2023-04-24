@@ -55,13 +55,17 @@ void plot_data() {
     gr->GetYaxis()->SetTitle("R_{s}");
     gr->GetYaxis()->SetRangeUser(0.07, 0.139);
     //gr->GetXaxis()->SetRangeUser(0.0, 75.0);
+    gr->GetXaxis()->SetLimits(0,77.0);
     gr->SetMarkerStyle(kOpenCircle); //20 valor
     gr->SetMarkerSize(0.4);
+    
     pad1->cd();
     gr->Draw("a p s ; ; 5 s=0.5");
     
+    
+    
     //No se pudo agregar los datos del LHCB porque no escalaba 
-    /*
+    
     // Definir datos de LHCB
     
     double x[] = {1.25, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.75, 12.75,27  };
@@ -70,8 +74,8 @@ void plot_data() {
     double ey[] = {0.003,0.003,0.003,0.003, 0.003, 0.003, 0.003,0.003, 0.003, 0.003, 0.003, 0.002 };
     TGraphErrors* gr3= new TGraphErrors(12, x, y_, ex, ey);  
     
-    gr3->SetMarkerStyle(20);
-    gr3->SetMarkerSize(1.2);
+    gr3->SetMarkerStyle(21);
+    gr3->SetMarkerSize(0.5);
     
     // Establecer el color de los errores
     gr3->SetFillColor(kRed);
@@ -80,12 +84,15 @@ void plot_data() {
     // Dibujar el gráfico
     gr3->GetYaxis()->SetRangeUser(0.07, 0.139);
     gr3->GetXaxis()->SetRangeUser(0.01, 75.0);
-    gr3->Draw("same");
-    */
+    gr3->SetLineColor(kRed);
+    gr3->SetMarkerColor(kBlue);
+    
+    gr3->Draw("EP");
+    
 
     
     // Definir la función de ajuste exponencial
-TF1* fitFunc = new TF1("fitFunc", "[0]*exp(-[1]*x) + [2]", 12.5, 75);
+TF1* fitFunc = new TF1("fitFunc", "[0]*exp(-[1]*x) + [2]", 12.0, 75);
 
 fitFunc->SetParameters(-0.434, 1, 0.11 );
 fitFunc->SetLineColor(kBlue);
@@ -104,6 +111,7 @@ leg->SetFillStyle(0);
 leg->SetBorderSize(0);
 leg->SetTextFont(62);
 leg->AddEntry(gr,"CMS data ;|y|< 2.4 ","PE");
+leg->AddEntry(gr3,"LHCB data ;2<|y|< 4.5 ","EP");
 //Puede ser útil 
 //leg->AddEntry(fitFunc, Form(" a = %.2f, b = %.2f, c = %.2f", fitFunc->GetParameter(0), fitFunc->GetParameter(1), fitFunc->GetParameter(2) ),"L" );
 //char fitParams[100];
