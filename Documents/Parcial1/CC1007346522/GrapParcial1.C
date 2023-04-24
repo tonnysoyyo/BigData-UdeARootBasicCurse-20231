@@ -1,5 +1,6 @@
 #include "TCanvas.h"
 #include "TGraphMultiErrors.h"
+#include "TMultiGraph.h"
 #include "TAxis.h"
 #include "TF1.h"
 #include "TPad.h"
