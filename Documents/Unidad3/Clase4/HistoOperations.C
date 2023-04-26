@@ -28,7 +28,7 @@ void HistoOperations(){
   
   // Sum
   auto sum_h= new TH1F(*bkg_h);
-  sum_h->Add(sig_h,1.);
+  sum_h->Add(sig_h,1.5);
   sum_h->SetTitle("Exponential + Gaussian;X variable;Y variable");
   format_h(sum_h,kBlue);
   
@@ -51,8 +51,10 @@ void HistoOperations(){
   c_divide->Divide(1,2,0,0);
   c_divide->cd(1);
   c_divide->GetPad(1)->SetRightMargin(.01);
-  gaus_h1->DrawNormalized("Hist");
-  gaus_h2->DrawNormalized("HistSame");
+  // gaus_h1->DrawNormalized("Hist");
+  // gaus_h2->DrawNormalized("HistSame");
+  gaus_h1->Draw("Hist");
+  gaus_h2->Draw("HistSame");
   
   c_divide->cd(2);
   dividend->GetYaxis()->SetRangeUser(0,2.49);
