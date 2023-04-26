@@ -1,0 +1,6 @@
+Tarea1: miercoles 26 de abril
+Por favor, mire nuestros ejemplos:
+"Example9_MyEventmanyparticles.C" y Example9_MyEventmanyparticles_read.C
+Realice esos mismos ejercisio,
+pero esta ves no utilice arreglas sino la clase "vector" de STL.
+
