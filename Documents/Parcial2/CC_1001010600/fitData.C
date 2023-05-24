@@ -108,5 +108,20 @@ void fitData(){
     frame2->Draw();
     
     c->Draw();
-    c->SaveAs("canvas.png");
+    c->SaveAs("massFit.png");
+
+    //Montecarlo
+
+    TCanvas* c2 = new TCanvas("c2", "c2", 800, 600);
+    c2->cd();
+    RooAbsPdf *modelMC = &model;
+    RooRealVar m("m", "m", 6.05, 6.5);
+    RooDataSet *dataMC = modelMC->generate(RooArgSet(m), Extended(kTRUE));
+    RooFitResult* resMC = modelMC->fitTo(*dataMC,Extended(),Minos(kFALSE),Save(kTRUE));
+
+    RooPlot* mframe2 = m.frame(6.05, 6.5, 60);
+    modelMC->plotOn(mframe2);
+    mframe2->Draw();
+    c2->Draw();
+    c2->SaveAs("monteCarlo.png");
 }
