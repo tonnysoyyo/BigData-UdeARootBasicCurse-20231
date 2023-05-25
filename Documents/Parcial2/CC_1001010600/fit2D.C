@@ -113,7 +113,7 @@ void fit2D(){
     lftext->DrawLatex(1.6, 45,Form("B_{c #tau} = %1.4f #pm %1.4f ps", -1/lifetime->getVal(), -lifetime->getError()/lifetime->getVal()));
 
     canvas->Draw();
-    canvas->SaveAs("2Dfit.png");
+    canvas->SaveAs("./plots/2Dfit.png");
 
     
 }

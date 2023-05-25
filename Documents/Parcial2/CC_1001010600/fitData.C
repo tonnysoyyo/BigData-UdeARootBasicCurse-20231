@@ -59,9 +59,6 @@ void fitData(){
     //Fit
     RooFitResult* result = model.fitTo(massDS, Extended(kTRUE), Save(kTRUE));
 
-    auto pars = result->floatParsFinal();
-    RooRealVar *massMean; massMean = (RooRealVar *)pars.at(3);
-
     //Grafico
     TCanvas* c = new TCanvas("c", "c", 1000, 800);
 
@@ -105,7 +102,7 @@ void fitData(){
     auto mtext = new TLatex();
     mtext->SetTextSize(0.04);
     mtext->SetTextFont(42);
-    mtext->DrawLatex(6.1, 80, Form("B_{c Mass} = %1.4f #pm %1.4f GeV", massMean->getVal(), massMean->getError()));
+    mtext->DrawLatex(6.1, 80, Form("B_{c Mass} = %1.4f #pm %1.4f GeV", mean1.getVal(), mean1.getError()));
 
     RooHist* massPull = mframe->pullHist();
     pad2->cd();
@@ -115,20 +112,12 @@ void fitData(){
     frame2->Draw();
     
     c->Draw();
-    c->SaveAs("massFit.png");
+    c->SaveAs("./plots/massFit.png");
 
-    //Montecarlo
-
-    TCanvas* c2 = new TCanvas("c2", "c2", 800, 600);
-    c2->cd();
-    RooAbsPdf *modelMC = &model;
-    RooRealVar m("m", "m", 6.05, 6.5);
-    RooDataSet *dataMC = modelMC->generate(RooArgSet(m), Extended(kTRUE));
-    RooFitResult* resMC = modelMC->fitTo(*dataMC,Extended(),Minos(kFALSE),Save(kTRUE));
-
-    RooPlot* mframe2 = m.frame(6.05, 6.5, 60);
-    modelMC->plotOn(mframe2);
-    mframe2->Draw();
-    c2->Draw();
-    c2->SaveAs("monteCarlo.png");
+    //Guardar fit
+    ofstream salida("fitData.txt");
+    salida << a0.getVal() << " " << a1.getVal() << " " << mean1.getVal() << " " << mean1.getError() <<
+    " " << sigma1.getVal() << " " << sigma1.getError() << " " << nbkg.getVal() << " " << nbkg.getError() << 
+    " " << nsig.getVal() << " " << nsig.getError();
+    salida.close();
 }
