@@ -59,6 +59,9 @@ void fitData(){
     //Fit
     RooFitResult* result = model.fitTo(massDS, Extended(kTRUE), Save(kTRUE));
 
+    auto pars = result->floatParsFinal();
+    RooRealVar *massMean; massMean = (RooRealVar *)pars.at(3);
+
     //Grafico
     TCanvas* c = new TCanvas("c", "c", 1000, 800);
 
@@ -95,10 +98,14 @@ void fitData(){
     legMass->AddEntry(mframe->findObject("signal"),"Signal","l");
     legMass->AddEntry(mframe->findObject("bkg"),"Bkg","l");
 
-
     mframe->SetTitle("Mass for B_{c} meson");
     mframe->Draw();
     legMass->Draw();
+
+    auto mtext = new TLatex();
+    mtext->SetTextSize(0.04);
+    mtext->SetTextFont(42);
+    mtext->DrawLatex(6.1, 80, Form("B_{c Mass} = %1.4f #pm %1.4f GeV", massMean->getVal(), massMean->getError()));
 
     RooHist* massPull = mframe->pullHist();
     pad2->cd();

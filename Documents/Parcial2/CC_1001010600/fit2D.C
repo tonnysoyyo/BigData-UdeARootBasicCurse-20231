@@ -62,9 +62,12 @@ void fit2D(){
     RooRealVar c("c", "c", -10,10);
     RooExponential lifet("lifet", "lifet", TAU, c);
 
-    RooProdPdf massLifeTime("massLifeTime", "massLifeTime", RooArgSet(masa, lifet));
+    RooProdPdf massLifeTime("massLifeTime", "massLifeTime", masa, Conditional(lifet, TAU));
 
-    RooFitResult* result = massLifeTime.fitTo(data);
+    RooFitResult* result = massLifeTime.fitTo(data, ConditionalObservables(tERR), Save(kTRUE));
+    auto pars = result->floatParsFinal();
+    RooRealVar *massMean; massMean = (RooRealVar *)pars.at(3);
+    RooRealVar *lifetime; lifetime = (RooRealVar *)pars.at(2);
 
 
     TCanvas* canvas = new TCanvas("c", "c", 1000, 600);
@@ -87,8 +90,13 @@ void fit2D(){
     framem->SetXTitle("Mass (GeV)");
 
     data.plotOn(framem);
-    massLifeTime.plotOn(framem, LineColor(kViolet-6));
+    massLifeTime.plotOn(framem, LineColor(kMagenta-3));
     framem->Draw();
+
+    auto mtext = new TLatex();
+    mtext->SetTextSize(0.031);
+    mtext->SetTextFont(42);
+    mtext->DrawLatex(6.3, 45,Form("B_{c Mass} = %1.4f #pm %1.4f GeV", massMean->getVal(), massMean->getError()));
 
     pad2->cd();
     RooPlot* framet = TAU.frame();
@@ -96,9 +104,16 @@ void fit2D(){
     framet->SetXTitle("#tau (ps)");
 
     data.plotOn(framet);
-    massLifeTime.plotOn(framet, LineColor(kViolet-6));
+    massLifeTime.plotOn(framet, LineColor(kMagenta-3));
     framet->Draw();
+
+    auto lftext = new TLatex();
+    lftext->SetTextSize(0.031);
+    lftext->SetTextFont(42);
+    lftext->DrawLatex(1.6, 45,Form("B_{c #tau} = %1.4f #pm %1.4f ps", -1/lifetime->getVal(), -lifetime->getError()/lifetime->getVal()));
 
     canvas->Draw();
     canvas->SaveAs("2Dfit.png");
+
+    
 }
