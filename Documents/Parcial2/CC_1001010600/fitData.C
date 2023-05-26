@@ -97,6 +97,11 @@ void fitData(){
 
     mframe->SetTitle("Mass for B_{c} meson");
     mframe->Draw();
+    mframe->SetYTitle("Events");
+    mframe->GetYaxis()->CenterTitle();   
+    mframe->SetTitleSize(0.05, "Y");
+    mframe->SetLabelSize(0.04,"XY");
+
     legMass->Draw();
 
     auto mtext = new TLatex();
@@ -109,6 +114,9 @@ void fitData(){
     RooPlot* frame2 = MASS.frame(Title("Pull Distribution")) ;
     frame2->addPlotable(massPull,"P") ;
     frame2->SetYTitle("(Data-Fit)/#sigma");
+    frame2->SetTitleSize(0.05, "XY");
+    frame2->GetYaxis()->CenterTitle();  
+    frame2->SetLabelSize(0.06,"XY"); 
     frame2->Draw();
     
     c->Draw();
