@@ -124,7 +124,7 @@ void fitData(){
 
     //Guardar fit
     ofstream salida("fitData.txt");
-    salida << a0.getVal() << " " << a1.getVal() << " " << mean1.getVal() << " " << mean1.getError() <<
+    salida << a0.getVal() << a0.getError() << " " << a1.getVal() << " " << a1.getError() << " " << mean1.getVal() << " " << mean1.getError() <<
     " " << sigma1.getVal() << " " << sigma1.getError() << " " << nbkg.getVal() << " " << nbkg.getError() << 
     " " << nsig.getVal() << " " << nsig.getError();
     salida.close();
